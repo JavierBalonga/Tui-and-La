@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tui and La</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="pond"><svg id="tui-la"></svg></div>
+    <div class="surface"></div>
+    <div class="mark">
+        <div class="corner" id="ul"></div>
+        <div class="corner" id="ur"></div>
+        <div class="corner" id="br"></div>
+        <div class="corner" id="bl"></div>
+        <div class="side" id="u"></div>
+        <div class="side" id="r"></div>
+        <div class="side" id="b"></div>
+        <div class="side" id="l"></div>
+    </div>
+    <svg>
+        <defs>
+        <filter id="turbulence" x="0" y="0" width="100%" height="100%">
+            <feTurbulence id="sea-filter" numOctaves="3" seed="2" baseFrequency="0 0"></feTurbulence>
+            <feDisplacementMap scale="20" in="SourceGraphic"></feDisplacementMap>
+        </filter>
+        <animate xlink:href="#sea-filter" attributeName="baseFrequency" dur="60s" keyTimes="0;0.5;1" values="0.008 0.008;0.016 0.016;0.008 0.008" repeatCount="indefinite"/>
+        <filter id="turbulence2" x="0" y="0" width="100%" height="100%">
+            <feTurbulence id="sea-filter2" numOctaves="3" seed="2" baseFrequency="0 0"></feTurbulence>
+            <feDisplacementMap scale="20" in="SourceGraphic"></feDisplacementMap>
+        </filter>
+        <animate xlink:href="#sea-filter2" attributeName="baseFrequency" dur="60s" keyTimes="0;0.5;1" values="0.004 0.004;0.008 0.008;0.004 0.004" repeatCount="indefinite"/>
+        <filter id="shadow" x="0" y="0" width="500%" height="500%">
+            <feDropShadow dx="20" dy="20" stdDeviation="4"/>
+        </filter>
+        </defs>
+    </svg>
+    <script src="classes.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
